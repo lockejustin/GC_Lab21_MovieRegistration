@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Movie Registration";
+}
+
+<h2>Please enter the information for the movie you'd like to register.</h2>
+
+@model Movie
+
+@Html.ValidationSummary()
+
+<form action="../MovieRegistration/MovieSummary" method="post">
+    @Html.LabelFor(m => m.ID)
+    @Html.ValidationMessageFor(m => m.ID)
+    <input min=1 type="number" name="ID" value="@Model.ID" /><br /><br />
+
+    @Html.LabelFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    <input type="text" name="Title" value="@Model.Title" />(Max 50 characters)<br /><br />
+
+    @Html.LabelFor(m => m.Genre)
+    @Html.ValidationMessageFor(m => m.Genre)
+    <select name="Genre">
+        <option name="Genre" value="Action">Action</option>
+        <option name="Genre" value="Action">Comedy</option>
+        <option name="Genre" value="Action">Romance</option>
+        <option name="Genre" value="Action">Science Fiction</option>
+        <option name="Genre" value="Action">Horror</option>
+        <option name="Genre" value="Action">Anime</option>
+    </select><br /><br />
+
+    @Html.LabelFor(m => m.Year)
+    @Html.ValidationMessageFor(m => m.Year)
+    <input min="1880" max="@DateTime.Today.Year" type="number" name="Year" value="@Model.Year" /><br /><br />
+
+    @Html.LabelFor(m => m.Actors)
+    @Html.ValidationMessageFor(m => m.Actors)
+    <input type="text" pattern=".{2,}" name="Actors" value="@Model.Actors" /> Separate multiple entries with ','<br /><br />
+
+    @Html.LabelFor(m => m.Directors)
+    @Html.ValidationMessageFor(m => m.Directors)
+    <input type="text" pattern=".{2,}" name="Directors" value="@Model.Directors" /> Separate multiple entries with ','<br /><br />
+
+    <input type="submit" value="Register Movie" />
+</form>
