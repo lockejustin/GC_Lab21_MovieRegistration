@@ -6,22 +6,65 @@
 
 <h2>@Model.Title has been registered.</h2>
 
-<p>ID: @Model.ID</p>
-<p>Title: @Model.Title</p>
-<p>Genre: @Model.Genre</p>
-<p>Year: @Model.Year</p>
-
-<p>Actors: 
-@foreach (string actor in Model.Actors)
-{
-    @actor
-}
+<p>
+    <table>
+        <th>ID</th>
+        <tr>
+            <td>@Model.ID</td>
+        </tr>
+    </table>
 </p>
 
-@foreach (string director in Model.Directors)
-{
-    <p>Directors: @director</p>
-}
+<p>
+    <table>
+        <th>Title</th>
+        <tr>
+            <td>@Model.Title</td>
+        </tr>
+    </table>
+</p>
+
+<p>
+    <table>
+        <th>Genre</th>
+        <tr>
+            <td>@Model.Genre</td>
+        </tr>
+    </table>
+</p>
+
+<p>
+    <table>
+        <th>Year</th>
+        <tr>
+            <td>@Model.Year</td>
+        </tr>
+    </table>
+</p>
+
+<p>
+    <table>
+        <th>Actors</th>
+        @foreach (string actor in Model.Actors)
+        {
+            <tr>
+                <td>@actor</td>
+            </tr>
+        }
+    </table>
+</p>
+
+<p>
+    <table>
+        <th>Directors</th>
+        @foreach (string director in Model.Directors)
+        {
+            <tr>
+                <td>@director</td>
+            </tr>
+        }
+    </table>
+</p>
 
 
 
