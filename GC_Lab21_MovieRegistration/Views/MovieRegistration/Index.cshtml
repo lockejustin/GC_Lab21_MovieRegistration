@@ -8,14 +8,14 @@
 
 @Html.ValidationSummary()
 
-<form action="../MovieRegistration/MovieSummary" method="post">
+<form action="../MovieRegistration/MovieSummary" method="get">
     @Html.LabelFor(m => m.ID)
     @Html.ValidationMessageFor(m => m.ID)
     <input min=1 type="number" name="ID" value="@Model.ID" /><br /><br />
 
     @Html.LabelFor(m => m.Title)
     @Html.ValidationMessageFor(m => m.Title)
-    <input type="text" name="Title" value="@Model.Title" />(Max 50 characters)<br /><br />
+    <input type="text" maxlength="50" name="Title" value="@Model.Title" />(Max 50 characters)<br /><br />
 
     @Html.LabelFor(m => m.Genre)
     @Html.ValidationMessageFor(m => m.Genre)
@@ -34,11 +34,11 @@
 
     @Html.LabelFor(m => m.Actors)
     @Html.ValidationMessageFor(m => m.Actors)
-    <input type="text" pattern=".{2,}" name="Actors" value="@Model.Actors" /> Separate multiple entries with ','<br /><br />
+    <input type="text" name="Actors" value="@Model.Actors" /> Separate multiple entries with ','<br /><br />
 
     @Html.LabelFor(m => m.Directors)
     @Html.ValidationMessageFor(m => m.Directors)
-    <input type="text" pattern=".{2,}" name="Directors" value="@Model.Directors" /> Separate multiple entries with ','<br /><br />
+    <input type="text" name="Directors" value="@Model.Directors" /> Separate multiple entries with ','<br /><br />
 
     <input type="submit" value="Register Movie" />
 </form>

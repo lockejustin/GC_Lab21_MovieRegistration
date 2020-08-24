@@ -10,9 +10,7 @@ namespace GC_Lab21_MovieRegistration.Models
     {
         [Required]
         public int ID { get; set; }
-        
         [Required]
-        [StringLength(50)]
         public string Title { get; set; }
         [Required]
         public string Genre { get; set; }
