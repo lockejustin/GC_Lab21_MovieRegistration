@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GC_Lab21_MovieRegistration.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace GC_Lab21_MovieRegistration.Controllers
 {
@@ -37,6 +38,20 @@ namespace GC_Lab21_MovieRegistration.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult DisplayMovie(string Movie)
+        {
+            HttpContext.Session.SetString("MovieSession", Movie);
+
+            return View("Index");
+        }
+
+        public IActionResult RemoveMovie()
+        {
+            HttpContext.Session.Remove("MovieSession");
+
+            return View("Index");
         }
     }
 }

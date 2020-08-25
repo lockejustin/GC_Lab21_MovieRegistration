@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<Movie>
+
+<h1>Movie List</h1>
+
+@foreach (var movie in Model)
+{
+    <p>@movie.Title</p>
+}
+
+@if (Model != null)
+{
+    <button onclick="location.href='../Home/RemoveMovie'" type="button">Clear List</button>
+}
